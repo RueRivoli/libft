@@ -6,11 +6,12 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 15:25:34 by fgallois          #+#    #+#             */
-/*   Updated: 2017/01/12 16:09:01 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/12 18:54:33 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int		ft_nbremots(char const *s, char c)
 {
@@ -52,6 +53,7 @@ static char		**ft_remplissage(char const *s, char c, char **tab)
 			tab[index] = NULL;
 		}
 	}
+	tab[index] = 0;
 	return (tab);
 }
 

@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/09 15:04:41 by fgallois          #+#    #+#             */
-/*   Updated: 2017/01/12 13:41:04 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/12 18:48:28 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	size_t i;
 
 	i = 0;
-	if (!dst || !src)
-		return (NULL);
 	ft_bzero(dst, len);
 	while (src[i] && i < len)
 	{
