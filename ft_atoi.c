@@ -6,12 +6,11 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/22 13:54:48 by fgallois          #+#    #+#             */
-/*   Updated: 2017/01/12 19:27:47 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/20 17:54:54 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 static int			ft_find(const char *str, int i)

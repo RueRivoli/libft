@@ -6,11 +6,12 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/02 16:30:30 by fgallois          #+#    #+#             */
-/*   Updated: 2017/01/12 16:19:26 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/20 18:04:55 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static int		ft_taille(int n)
 {

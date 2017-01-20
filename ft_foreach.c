@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/02 15:50:45 by fgallois          #+#    #+#             */
-/*   Updated: 2017/01/20 18:02:50 by fgallois         ###   ########.fr       */
+/*   Created: 2016/11/23 18:59:50 by fgallois          #+#    #+#             */
+/*   Updated: 2017/01/20 18:01:57 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "unistd.h"
-
-void	ft_putchar_fd(char c, int fd)
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
-	write(fd, &c, 1);
+	int i;
+
+	i = 0;
+	while (i < length)
+	{
+		f(tab[i]);
+		i++;
+	}
 }

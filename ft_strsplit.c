@@ -6,12 +6,12 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/04 15:25:34 by fgallois          #+#    #+#             */
-/*   Updated: 2017/01/12 18:54:33 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/01/20 18:04:34 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
+#include <stdlib.h>
 
 static int		ft_nbremots(char const *s, char c)
 {
