@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 14:43:22 by fgallois          #+#    #+#             */
-/*   Updated: 2017/01/20 18:01:50 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/03/02 15:17:20 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,6 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_swap(int *a, int *b);
 void				ft_foreach(int *tab, int length, void (*f)(int));
-
+int					ft_splitlen(char **str);
+int					ft_hextoint(char *str);
 #endif
