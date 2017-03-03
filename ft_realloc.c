@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/08 22:34:39 by fgallois          #+#    #+#             */
-/*   Updated: 2017/03/03 16:32:36 by fgallois         ###   ########.fr       */
+/*   Created: 2017/03/03 15:52:05 by fgallois          #+#    #+#             */
+/*   Updated: 2017/03/03 17:15:51 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strcpy(char *dst, const char *src)
+void	*ft_realloc(void *ptr, size_t new_size, size_t old_size)
 {
-	int i;
-
-	i = 0;
-	while (src[i])
+	void *p;
+	if (!ptr)
+		return (ft_memalloc(new_size));
+	if (new_size == 0)
 	{
-		dst[i] = src[i];
-		i++;
+		free(ptr);
+		ptr = NULL;
+		return (NULL);
 	}
-	dst[i] = '\0';
-	return (dst);
+	if (!(p = malloc(new_size)))
+		return (NULL);
+	ft_memcpy(p, ptr, old_size);
+	free(ptr);
+	ptr = NULL;
+	return (p);
 }
