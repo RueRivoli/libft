@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 14:43:22 by fgallois          #+#    #+#             */
-/*   Updated: 2017/03/02 15:17:20 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/03/02 17:34:02 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 # include <string.h>
+# include <fcntl.h>
+# define BUFF_SIZE 8
 
 typedef struct		s_list
 {
@@ -21,6 +23,13 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_line
+{
+	int fd;
+	char *line;
+	struct s_line *next;
+}	t_line;
 
 void				*ft_memset(void	*b, int c, size_t len);
 void				ft_bzero(void	*s, size_t n);
@@ -87,4 +96,5 @@ void				ft_swap(int *a, int *b);
 void				ft_foreach(int *tab, int length, void (*f)(int));
 int					ft_splitlen(char **str);
 int					ft_hextoint(char *str);
+int					get_next_line(int fd, char **line);
 #endif

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/01/03 21:22:06 by fgallois          #+#    #+#             */
-/*   Updated: 2017/01/11 14:32:47 by fgallois         ###   ########.fr       */
+/*   Created: 2017/03/06 16:54:41 by fgallois          #+#    #+#             */
+/*   Updated: 2017/03/06 16:54:48 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,25 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char *s;
+	char			*ns;
+	unsigned int	i;
+	unsigned int	j;
 
-	if (s1 == NULL || s2 == NULL)
+	ns = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+	if (!s1 || !s2 || !ns)
 		return (NULL);
-	s = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
-	if (s == NULL)
-		return (NULL);
-	ft_strcpy(s, s1);
-	ft_strcpy(s + ft_strlen(s1), s2);
-	return (s);
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
+	{
+		ns[i] = s1[i];
+		i++;
+	}
+	while (s2[j] != '\0')
+	{
+		ns[i + j] = s2[j];
+		j++;
+	}
+	ns[i + j] = '\0';
+	return (ns);
 }

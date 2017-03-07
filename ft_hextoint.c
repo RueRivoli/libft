@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 13:54:46 by fgallois          #+#    #+#             */
-/*   Updated: 2017/03/02 15:08:33 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/03/02 15:34:27 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,8 @@ int		hex_to_int(char *str)
 	while (len-- > 0)
 	{
 		if (convert_hex(str[len]) == -1)
-		{
-			ft_putchar('d');
 			return (-1);
-		}
-		res = res + convert_hex(str[len]) * pow;
+		res = res + pow * convert_hex(str[len]);
 		pow = pow * 16;
 	}
 	return (res);

@@ -6,7 +6,7 @@
 #    By: fgallois <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/17 13:57:26 by fgallois          #+#    #+#              #
-#    Updated: 2017/03/02 15:16:19 by fgallois         ###   ########.fr        #
+#    Updated: 2017/03/02 17:34:22 by fgallois         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,7 +72,8 @@ SRC_NAME=	ft_lstadd.c \
 			ft_strtrim.c \
 			ft_strsplit.c \
 			ft_splitlen.c \
-			ft_hextoint.c
+			ft_hextoint.c \
+			get_next_line.c
 
 
 HEADER= ./
