@@ -5,23 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/06 14:53:47 by fgallois          #+#    #+#             */
-/*   Updated: 2017/03/09 12:23:48 by fgallois         ###   ########.fr       */
+/*   Created: 2017/03/09 16:03:01 by fgallois          #+#    #+#             */
+/*   Updated: 2017/03/09 16:11:09 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
 #include "libft.h"
-#include <stdio.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
 
-static t_line *init_list(int fd)
+static t_line        *init_list(const int fd)
 {
 	t_line *new;
 
-	if (!(new = (t_line*)malloc(sizeof(t_line))))
+	if (!(new = (t_line *)malloc(sizeof(t_line))))
 		return (NULL);
 	new->fd = fd;
 	new->line = ft_strnew(0);
@@ -29,7 +24,7 @@ static t_line *init_list(int fd)
 	return (new);
 }
 
-static void			add_elem(t_line *list, t_line *new)
+static void            add_elem(t_line *list, t_line *new)
 {
 	while (list->next != NULL)
 	{
@@ -39,11 +34,13 @@ static void			add_elem(t_line *list, t_line *new)
 	new->next = NULL;
 }
 
-static char        *get_first_line(t_line *list, char **line)
+static char            *get_first_line(t_line *list, char **line)
 {
 	char    *text;
 	int        i;
+	char    *tmp;
 
+	tmp = NULL;
 	i = 0;
 	text = list->line;
 	while (text[i])
@@ -54,10 +51,6 @@ static char        *get_first_line(t_line *list, char **line)
 			tmp = text;
 			text = ft_strdup(text + (i + 1));
 			free(tmp);
-		if (text[i] == '\n')
-		{
-			*line = ft_strsub(text, 0, i);
-			text = ft_strdup(text + (i + 1));
 			return (text);
 		}
 		i++;
@@ -68,11 +61,11 @@ static char        *get_first_line(t_line *list, char **line)
 	return (text);
 }
 
-static int			read_file(int fd, t_line *list)
+static int            read_file(int fd, t_line *list)
 {
-	int		ret;
-	char	buf[BUFF_SIZE + 1];
-	char	*tmp;
+	int        ret;
+	char    buf[BUFF_SIZE + 1];
+	char    *tmp;
 
 	tmp = NULL;
 	ret = -42;
@@ -88,12 +81,15 @@ static int			read_file(int fd, t_line *list)
 			return (-1);
 		free(tmp);
 		ft_bzero(buf, BUFF_SIZE + 1);
+	}
+	return (1);
+}
 
-int					get_next_line(int fd, char **line)
+int                    get_next_line(int fd, char **line)
 {
-	static	t_line	*file;
-	int				ret;
-	t_line			*tmp;
+	static    t_line    *file;
+	int                ret;
+	t_line            *tmp;
 
 	if (!file)
 		file = init_list(fd);
@@ -113,4 +109,5 @@ int					get_next_line(int fd, char **line)
 	tmp->line = get_first_line(tmp, line);
 	if (!ft_strlen(tmp->line) && !ft_strlen(*line) && !ret)
 		return (0);
+	return (1);
 }
