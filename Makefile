@@ -6,7 +6,7 @@
 #    By: fgallois <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/17 13:57:26 by fgallois          #+#    #+#              #
-#    Updated: 2017/03/09 12:20:30 by fgallois         ###   ########.fr        #
+#    Updated: 2017/03/09 12:25:05 by fgallois         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,11 +72,12 @@ SRC_NAME=	ft_lstadd.c \
 			ft_strtrim.c \
 			ft_strsplit.c \
 			ft_splitlen.c \
+			ft_realloc.c \
 			ft_hextoint.c \
 			get_next_line.c
 
 
-HEADER= ./
+HEADER= ./includes/
 OBJ= $(SRC_NAME:.c=.o)
 
 all: $(NAME)

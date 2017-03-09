@@ -6,7 +6,11 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 14:43:22 by fgallois          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2017/03/02 17:34:02 by fgallois         ###   ########.fr       */
+=======
+/*   Updated: 2017/03/09 12:13:46 by fgallois         ###   ########.fr       */
+>>>>>>> b4855ccf72a2ca1a7c0bf5817d5088b402f1b07c
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +101,8 @@ void				ft_foreach(int *tab, int length, void (*f)(int));
 int					ft_splitlen(char **str);
 int					ft_hextoint(char *str);
 int					get_next_line(int fd, char **line);
+<<<<<<< HEAD
+=======
+void				*ft_realloc(void *ptr, size_t new_size, size_t old_size);
+>>>>>>> b4855ccf72a2ca1a7c0bf5817d5088b402f1b07c
 #endif
