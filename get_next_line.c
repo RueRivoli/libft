@@ -6,21 +6,17 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 14:53:47 by fgallois          #+#    #+#             */
-/*   Updated: 2017/03/02 17:36:00 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/02/21 15:53:06 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdio.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
+#include "get_next_line.h"
 
-static t_line *init_list(int fd)
+static t_line		*init_list(const int fd)
 {
 	t_line *new;
 
-	if (!(new = (t_line*)malloc(sizeof(t_line))))
+	if (!(new = (t_line *)malloc(sizeof(t_line))))
 		return (NULL);
 	new->fd = fd;
 	new->line = ft_strnew(0);
@@ -28,19 +24,33 @@ static t_line *init_list(int fd)
 	return (new);
 }
 
-static char        *get_first_line(t_line *list, char **line)
+static void			add_elem(t_line *list, t_line *new)
 {
-	char    *text;
-	int        i;
+	while (list->next != NULL)
+	{
+		list = list->next;
+	}
+	list->next = new;
+	new->next = NULL;
+}
 
+static char			*get_first_line(t_line *list, char **line)
+{
+	char	*text;
+	int		i;
+	char	*tmp;
+
+	tmp = NULL;
 	i = 0;
 	text = list->line;
 	while (text[i])
 	{
-		if (text[i] == '\n')
+		if (text[i] == EOL)
 		{
 			*line = ft_strsub(text, 0, i);
+			tmp = text;
 			text = ft_strdup(text + (i + 1));
+			free(tmp);
 			return (text);
 		}
 		i++;
@@ -51,50 +61,53 @@ static char        *get_first_line(t_line *list, char **line)
 	return (text);
 }
 
-
-
-static int		read_file(int fd, t_line *file)
+static int			read_file(int fd, t_line *list)
 {
-	int ret;
-	char buff[BUFF_SIZE + 1];
+	int		ret;
+	char	buf[BUFF_SIZE + 1];
+	char	*tmp;
 
-	while (!ft_strchr(file->line, '\n'))
+	tmp = NULL;
+	ret = -42;
+	while (!ft_strchr(list->line, EOL))
 	{
-		if ((ret = read(fd, buff, BUFF_SIZE)) <= 0)
-			return (0);
-		buff[ret] = 0;
-		if(!(file->line = ft_strjoin(file->line, buff)))
+		if ((ret = read(fd, buf, BUFF_SIZE)) < 0)
 			return (-1);
-		ft_bzero(buff, BUFF_SIZE + 1);
+		else if (ret == 0)
+			return (0);
+		buf[ret] = 0;
+		tmp = list->line;
+		if (!(list->line = ft_strjoin(list->line, buf)))
+			return (-1);
+		free(tmp);
+		ft_bzero(buf, BUFF_SIZE + 1);
 	}
 	return (1);
 }
 
-
-int		get_next_line(int fd, char **line)
+int					get_next_line(int fd, char **line)
 {
-	int ret;
-	char buff[BUFF_SIZE + 1];
-	static t_line *file;
+	static	t_line	*file;
+	int				ret;
+	t_line			*tmp;
 
 	if (!file)
 		file = init_list(fd);
-	if (fd < 0 || !line || !file)
+	tmp = file;
+	if (fd < 0 || !line)
 		return (-1);
-		if ((ret = read(fd, buff, BUFF_SIZE)) > 0)
+	while (tmp)
 	{
-		buff[ret] = '\0';
-		file->line = ft_strjoin(file->line, buff);
+		if (tmp->fd == fd)
+			break ;
+		if (tmp->next == NULL)
+			add_elem(tmp, init_list(fd));
+		tmp = tmp->next;
 	}
-	else if (ret < 0)
+	if ((ret = read_file(fd, tmp)) < 0)
 		return (-1);
-	else if (!ft_strlen(file->line))
+	tmp->line = get_first_line(tmp, line);
+	if (!ft_strlen(tmp->line) && !ft_strlen(*line) && !ret)
 		return (0);
-	ret = read_file(fd, file);
-	if (ret < 0)
-		return (-1);
-	file->line = get_first_line(file, line);
-	//if (!ft_strlen(file->line) && !ft_strlen(*line) && !ret)
-	//	return (0);
 	return (1);
 }
