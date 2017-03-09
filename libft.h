@@ -6,7 +6,8 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 14:43:22 by fgallois          #+#    #+#             */
-/*   Updated: 2017/03/09 16:12:57 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/03/09 18:25:41 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/03/09 16:04:36 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +21,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <stdlib.h>
 
 # define BUFF_SIZE 8
 # define EOL '\n'
