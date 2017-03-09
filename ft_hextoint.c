@@ -23,7 +23,7 @@ int		convert_hex(char c)
 	return (-1);
 }
 
-int		hex_to_int(char *str)
+int		ft_hextoint(char *str)
 {
 	int len;
 	int pow;
