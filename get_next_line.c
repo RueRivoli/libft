@@ -6,16 +6,11 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/06 14:53:47 by fgallois          #+#    #+#             */
-/*   Updated: 2017/03/09 12:23:48 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/03/09 12:32:20 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
 #include "libft.h"
-#include <stdio.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 static t_line *init_list(int fd)
 {
