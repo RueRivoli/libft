@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 14:43:22 by fgallois          #+#    #+#             */
-/*   Updated: 2017/03/09 18:25:41 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/03/22 16:25:08 by fgallois         ###   ########.fr       */
 /*   Updated: 2017/03/09 16:04:36 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -107,4 +107,6 @@ int					ft_splitlen(char **str);
 int					ft_hextoint(char *str);
 int					get_next_line(int fd, char **line);
 void				*ft_realloc(void *ptr, size_t new_size, size_t old_size);
+int					ft_ispresent(char *str, char c);
+int					ft_isnumber(char *str);
 #endif
