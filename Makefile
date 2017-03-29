@@ -76,7 +76,7 @@ SRC_NAME=	ft_lstadd.c \
 			ft_hextoint.c \
 			get_next_line.c \
 			ft_ispresent.c \
-			ft_isnumber.c
+			ft_isnumber.c \
 
 HEADER= ./includes/
 OBJ= $(SRC_NAME:.c=.o)

@@ -32,8 +32,8 @@ int		ft_hextoint(char *str)
 	res = 0;
 	pow = 1;
 	len = ft_strlen(str);
-	if (len != 6)
-		return (-1);
+	/*if (len != 6)
+		return (-1);*/
 	while (len-- > 0)
 	{
 		if (convert_hex(str[len]) == -1)
