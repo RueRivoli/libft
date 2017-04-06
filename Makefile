@@ -77,6 +77,7 @@ SRC_NAME=	ft_lstadd.c \
 			get_next_line.c \
 			ft_ispresent.c \
 			ft_isnumber.c \
+			ft_freetab.c
 
 HEADER= ./includes/
 OBJ= $(SRC_NAME:.c=.o)

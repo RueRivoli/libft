@@ -109,4 +109,5 @@ int					get_next_line(int fd, char **line);
 void				*ft_realloc(void *ptr, size_t new_size, size_t old_size);
 int					ft_ispresent(char *str, char c);
 int					ft_isnumber(char *str);
+void				ft_freetab(char **tab);
 #endif
