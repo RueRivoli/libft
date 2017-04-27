@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/03 15:52:05 by fgallois          #+#    #+#             */
-/*   Updated: 2017/03/03 17:15:51 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/04/27 12:40:59 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 void	*ft_realloc(void *ptr, size_t new_size, size_t old_size)
 {
-	void *p;
+	void	*p;
+
 	if (!ptr)
 		return (ft_memalloc(new_size));
 	if (new_size == 0)

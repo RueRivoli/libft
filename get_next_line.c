@@ -6,15 +6,15 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/09 18:25:14 by fgallois          #+#    #+#             */
-/*   Updated: 2017/04/26 11:36:44 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/04/27 12:34:45 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_line        *init_list(const int fd)
+static t_line		*init_list(const int fd)
 {
-	t_line *new;
+	t_line	*new;
 
 	if (!(new = (t_line *)malloc(sizeof(t_line))))
 		return (NULL);
@@ -24,7 +24,7 @@ static t_line        *init_list(const int fd)
 	return (new);
 }
 
-static void            add_elem(t_line *list, t_line *new)
+static void			add_elem(t_line *list, t_line *new)
 {
 	while (list->next != NULL)
 	{
@@ -34,11 +34,11 @@ static void            add_elem(t_line *list, t_line *new)
 	new->next = NULL;
 }
 
-static char            *get_first_line(t_line *list, char **line)
+static char			*get_first_line(t_line *list, char **line)
 {
-	char    *text;
-	int        i;
-	char    *tmp;
+	char	*text;
+	int		i;
+	char	*tmp;
 
 	tmp = NULL;
 	i = 0;
@@ -61,11 +61,11 @@ static char            *get_first_line(t_line *list, char **line)
 	return (text);
 }
 
-static int            read_file(int fd, t_line *list)
+static int			read_file(int fd, t_line *list)
 {
-	int        ret;
-	char    buf[BUFF_SIZE + 1];
-	char    *tmp;
+	int		ret;
+	char	buf[BUFF_SIZE + 1];
+	char	*tmp;
 
 	tmp = NULL;
 	ret = -42;
@@ -85,11 +85,11 @@ static int            read_file(int fd, t_line *list)
 	return (1);
 }
 
-int                    get_next_line(int fd, char **line)
+int					get_next_line(int fd, char **line)
 {
-	static    t_line    *file;
-	int                ret;
-	t_line            *tmp;
+	static	t_line		*file;
+	int					ret;
+	t_line				*tmp;
 
 	if (!file)
 		file = init_list(fd);

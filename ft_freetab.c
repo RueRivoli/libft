@@ -6,15 +6,15 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 15:12:14 by fgallois          #+#    #+#             */
-/*   Updated: 2017/04/14 12:28:29 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/04/27 12:46:14 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void    ft_freetab(char **tab)
+void	ft_freetab(char **tab)
 {
-	int    i;
+	int		i;
 
 	i = 0;
 	while (tab[i])

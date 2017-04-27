@@ -1,12 +1,20 @@
-# include "libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isnumber.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/04/27 12:41:22 by fgallois          #+#    #+#             */
+/*   Updated: 2017/04/27 12:43:05 by fgallois         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-/*Renvoie 1 si le char * est juge egal a un nombre negatif ou positif.
-Un nombre d'espaces consecutifs au debut est accepte, puis un - ou un + 
-et ensuite les nombres successifs*/
+#include "libft.h"
 
 int		ft_isnumber(char *str)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (str[i] != '\0' && str[i] == ' ')

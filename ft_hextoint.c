@@ -6,7 +6,7 @@
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/02 13:54:46 by fgallois          #+#    #+#             */
-/*   Updated: 2017/03/09 12:24:35 by fgallois         ###   ########.fr       */
+/*   Updated: 2017/04/27 12:45:27 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,13 @@ int		convert_hex(char c)
 
 int		ft_hextoint(char *str)
 {
-	int len;
-	int pow;
-	int res;
+	int		len;
+	int		pow;
+	int		res;
 
 	res = 0;
 	pow = 1;
 	len = ft_strlen(str);
-	/*if (len != 6)
-		return (-1);*/
 	while (len-- > 0)
 	{
 		if (convert_hex(str[len]) == -1)

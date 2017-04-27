@@ -5,9 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fgallois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/06 14:43:22 by fgallois          #+#    #+#             */
-/*   Updated: 2017/04/14 15:31:32 by fgallois         ###   ########.fr       */
-/*   Updated: 2017/03/09 16:04:36 by fgallois         ###   ########.fr       */
+/*   Created: 2017/04/27 12:38:18 by fgallois          #+#    #+#             */
+/*   Updated: 2017/04/27 12:39:24 by fgallois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +32,12 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
-typedef struct s_line
+typedef struct		s_line
 {
-	int fd;
-	char *line;
-	struct s_line *next;
-}	t_line;
+	int				fd;
+	char			*line;
+	struct s_line	*next;
+}					t_line;
 
 void				*ft_memset(void	*b, int c, size_t len);
 void				ft_bzero(void	*s, size_t n);
